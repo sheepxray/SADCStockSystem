@@ -82,12 +82,23 @@ function read() {
 		file.writeTo('plugins\\SADCStockSystem\\config.json', datacaa);
 	}
 	function setconfig2(){
-		let datamo = { "粗铁":100,"粗铜":70,"煤":50,"粗金":150,"绿宝石":250,"下届合金锭":1500,"钻石":1000,"红石":30};
+		let datamo = { "粗铁":100,"粗铜":70,"煤":50,"粗金":150,"绿宝石":250,"下届合金锭":1500,"钻石":1000,"红石":30,"青金石":50};
 		let datamob = JSON.stringify(datamo,null,"\t");
 		file.writeTo("plugins\\SADCStockSystem\\core.json', datacaa");
 	}	
 //写入主逻辑
+var iron = traaa.粗铁
+var gold = traaa.粗金
+var diamond = traaa.钻石
+var lbs = traaa.绿宝石
+var cu = traaa.粗铜
+var coal = traaa.煤
+var xjhjd = traaa.下届合金锭
+var red_stone = traaa.红石
+var qjs = traaa.青金石
+
 function refresh(){
-	
+	caculate()
+	mc.broadcast("",type)
 };
-mc.listen("onServerStarted",Player=>{refresh()});
+mc.listen("onServerStarted",Player=>{setInterval(refresh(),30000)});
