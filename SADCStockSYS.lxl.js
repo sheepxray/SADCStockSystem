@@ -1,6 +1,8 @@
 //LiteLoaderScript Dev Helper
 /// <reference path="C:\Users\Administrator\Documents\GitHub\HelperLib-master\src\index.d.ts"/> 
 
+const { file } = require("../HelperLib-master/src/SystemAPI/File")
+
 ll.registerPlugin(SADCStockSystem,"A system like stock in eco",[0,0,1], "https://github.com/sheepxray/SADCStockSystem")
 
 //定义初始变量
@@ -38,3 +40,51 @@ if (auto_Upgrade == true) {
 		}
 	})
 }
+
+function read() {
+	let r = file.createDir('plugins/SADCStockSystem')
+	//配置文件生成
+	let deploy = file.exists('plugins/SADCStockSystem/config.json');
+	if (deploy) {
+		try {
+			tick = file.readFrom('plugins\\SADCStockSystem\\config.json');
+			traab = JSON.parse(tick);
+		}
+		catch (err) {
+			log("主配置文件出错")
+			setconfig()
+			tick = file.readFrom('plugins\\SADCStockSystem\\config.json');
+			traab = JSON.parse(tick);
+		}
+	}
+	else {
+		setconfig()
+		tick = file.readFrom('plugins\\SADCStockSystem\\config.json');
+		traab = JSON.parse(tick);
+	}
+	let checkc = file.exists('plugins\\SADCStockSystem\\core.json')
+	if (checkc){
+		try{
+			tickc = file.readFrom("plugins\\SADCStockSystem\\core.json")
+			traaa = JSON.parse(tickc)
+		}
+		catch(err){
+			log("物价表出错")
+			setconfig2()
+			tickc = file.readFrom("plugins\\SADCStockSystem\\core.json")
+			traaa = JSON.parse(tickc)
+		}
+	}
+}
+	function setconfig() {
+		let dataccq = { "配置文件版本号": config_version, "自动更新": true };
+		let datacaa = JSON.stringify(dataccq, null, "\t");
+		file.writeTo('plugins\\SADCStockSystem\\config.json', datacaa);
+	}
+	function setconfig2(){
+		let datamo = { "粗铁":100,"粗铜":70,"煤":50,"粗金":150,"绿宝石":250,"下届合金锭":1500,"钻石":1000,"红石":30};
+		let datamob = JSON.stringify(datamo,null,"\t");
+		file.writeTo("plugins\\SADCStockSystem\\core.json', datacaa");
+	}	
+//写入主逻辑
+file
