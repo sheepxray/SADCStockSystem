@@ -87,4 +87,7 @@ function read() {
 		file.writeTo("plugins\\SADCStockSystem\\core.json', datacaa");
 	}	
 //写入主逻辑
-file
+function refresh(){
+	
+};
+mc.listen("onServerStarted",Player=>{refresh()});
