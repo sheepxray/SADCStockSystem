@@ -53,7 +53,7 @@ function read() {
 		catch (err) {
 			log("主配置文件出错")
 			setconfig()
-			tick = file.readFrom('plugins\\SADCStockSystem\\config.json');
+			tick = file.readFrom('plugins\\SADCS$ git config --global http.sslVerify "false"tockSystem\\config.json');
 			traab = JSON.parse(tick);
 		}
 	}
