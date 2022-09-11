@@ -11,6 +11,7 @@ var auto_Upgrade = true
 let langtp = {
     "Get_NewVersion": "获取到云端版本{version_lastest}，正在更新...",
 	"Get_NewVersion_Error": "获取最新版本异常",
+	"UpdatePlugin_Successful":"成功更新 当前版本{version_lastest}"
 }
 //载入自动更新模块
 if (auto_Upgrade == true) {
@@ -24,7 +25,7 @@ if (auto_Upgrade == true) {
 						let plugin = dat2.replace(/\r/g, '');
 						file.writeTo("plugins/SADCStockSYS.lxl.js", plugin)
 						log(lang.UpdatePlugin_Successful)
-						mc.runcmdEx("lxl reload SADCStockSYS.lxl.js")
+						mc.runcmdEx("ll reload SADCStockSYS.lxl.js")
 					}
 					else {
 						log(lang.UpdatePlugin_Error)
